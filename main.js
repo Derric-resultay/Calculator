@@ -14,6 +14,10 @@ const sub = document.querySelector('.sub');
 const mult = document.querySelector('.mult');
 const divi = document.querySelector('.divi');
 const dot = document.querySelector('.dot');
+// initializing additional features
+const backSpace = document.querySelector('.backspace');
+const modulus = document.querySelector('.modulus');
+const negatives = document.querySelector('.negatives')
 
 // initialize the screen
 const para = document.querySelector('.upper');
@@ -96,7 +100,22 @@ divi.addEventListener('click', () => {
 });
 dot.addEventListener('click', () => {
     para.textContent += `${dots}`;
+});
+negatives.addEventListener('click', () => {
+    para.textContent += `-`
+});
+modulus.addEventListener('click', () => {
+    para.textContent += ` % `;
+});
+backSpace.addEventListener('click', () => {
+    let param = para.textContent;
+    let deleteSome = param.split('');
+    deleteSome.splice(deleteSome.length-1, 1);
+    let text = deleteSome.join('');
+    return para.textContent = text; 
 })
+
+
 equals.addEventListener('click', () => {
     let param = para.textContent;
     return equal(param);
@@ -124,12 +143,16 @@ function equal(param){
             para.textContent = `${division(firstNum, secondNum)}`;
             hisPara.textContent = `${firstNum} / ${secondNum}`
             break;
+        case '%':
+            para.textContent = `${moduulus(firstNum, secondNum)}`;
+            hisPara.textContent = `${firstNum} % ${secondNum}`;
+            break;
         default:
             "ERROR!";
     }
 };
 function addition(a, b){
-    return +a + +b;
+    return Number(a) + Number(b);
 };
 function subtraction(a, b){
     return a - b;
@@ -140,7 +163,9 @@ function multiplication(a, b){
 function division(a, b){
     return a / b;
 };
-
+function moduulus(a, b){
+    return a % b;
+}
 clear.addEventListener('click', () => {
     para.textContent = '';
     hisPara.textContent = '';
