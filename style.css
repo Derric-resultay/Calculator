@@ -23,8 +23,23 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    font-size: 26px;
     padding: 10px;
+}
+.screen-right{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+}
+.history {
+    flex: 1 1 0;
+    margin: 0;
+    font-size: 20px;
+}
+.upper {
+    flex: 2 1 0;
+    margin: 0;
+    font-size: 26px;
+
 }
 .body-calculator {
     flex: 5;

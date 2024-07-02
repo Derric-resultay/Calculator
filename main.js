@@ -15,7 +15,8 @@ const mult = document.querySelector('.mult');
 const divi = document.querySelector('.divi');
 
 // initialize the screen
-const para = document. querySelector('.upper');
+const para = document.querySelector('.upper');
+const hisPara = document.querySelector('.history');
 // initialize the value of the buttons
 const wala = 0;
 const isa = 1;
@@ -96,15 +97,19 @@ function equal(param){
     switch(operator){
         case '+':
             para.textContent = `${addition(firstNum, secondNum)}`;
+            hisPara.textContent = `${firstNum} + ${secondNum}`
             break;
         case '-':
             para.textContent = `${subtraction(firstNum, secondNum)}`;
+            hisPara.textContent = `${firstNum} - ${secondNum}`
             break;
         case '*':
             para.textContent = `${multiplication(firstNum, secondNum)}`;
+            hisPara.textContent = `${firstNum} * ${secondNum}`
             break;
         case '/':
             para.textContent = `${division(firstNum, secondNum)}`;
+            hisPara.textContent = `${firstNum} / ${secondNum}`
             break;
         default:
             "ERROR!";
