@@ -13,6 +13,7 @@ const add = document.querySelector('.add');
 const sub = document.querySelector('.sub');
 const mult = document.querySelector('.mult');
 const divi = document.querySelector('.divi');
+const dot = document.querySelector('.dot');
 
 // initialize the screen
 const para = document.querySelector('.upper');
@@ -29,18 +30,27 @@ const pito = 7;
 const walo = 8;
 const syam = 9;
 // initialize operators
+const clear = document.querySelector('.clear');
 const plus = '+';
 const minus = '-';
 const multiply = '*';
 const divide = '/';
+const dots = '.';
 // initialize equal button
 const equals = document.querySelector('.equals');
-
+const btn = document.querySelectorAll('button');
 // initialize the variable to be used
 let firstNum;
 let secondNum;
 let operator;
-
+btn.forEach(element => {
+    element.addEventListener('click', () => {
+        element.classList.add('active');
+        setTimeout(() => {
+            element.classList.remove('active');
+        }, 100);
+    });
+});
 
 zero.addEventListener('click', () => {
     para.textContent += `${wala}`;    
@@ -70,7 +80,7 @@ eight.addEventListener('click', () => {
     para.textContent += `${walo}`;    
 });
 nine.addEventListener('click', () => {
-    para.textContent += `${syam} `;    
+    para.textContent += `${syam}`;    
 });
 add.addEventListener('click', () => {
     para.textContent += ` ${plus} `;
@@ -84,6 +94,9 @@ mult.addEventListener('click', () => {
 divi.addEventListener('click', () => {
     para.textContent += ` ${divide} `;
 });
+dot.addEventListener('click', () => {
+    para.textContent += `${dots}`;
+})
 equals.addEventListener('click', () => {
     let param = para.textContent;
     return equal(param);
@@ -127,3 +140,8 @@ function multiplication(a, b){
 function division(a, b){
     return a / b;
 };
+
+clear.addEventListener('click', () => {
+    para.textContent = '';
+    hisPara.textContent = '';
+})
